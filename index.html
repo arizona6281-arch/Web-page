@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>폐기물 기반 에너지 혁신</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #cdeaff, #eaf7ff);
+      color: #002b5b;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 🔵 추상적인 블러 효과 배경 */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 150, 255, 0.3), transparent 70%);
+      top: -200px;
+      left: -200px;
+      filter: blur(200px);
+      z-index: -1;
+      animation: float1 10s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 255, 200, 0.2), transparent 70%);
+      bottom: -200px;
+      right: -200px;
+      filter: blur(150px);
+      z-index: -1;
+      animation: float2 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes float1 {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(30px) scale(1.1); }
+    }
+
+    @keyframes float2 {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-40px) scale(1.15); }
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      background: linear-gradient(160deg, #0077b6, #00b4d8, #90e0ef);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeSlide 1.5s ease forwards;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      opacity: 0;
+      animation: fadeSlide 2s ease 0.3s forwards;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section:nth-child(even) {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    section:nth-child(odd) {
+      background: rgba(229, 244, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #004b8d;
+    }
+
+    .content {
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #03396c;
+    }
+
+    .highlight {
+      color: #0077b6;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 10px;
+      background-color: #002b5b;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    canvas {
+      max-width: 800px;
+      margin-top: 50px;
+      animation: floatGraph 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGraph {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🗑️ 폐기물 기반 에너지 혁신</h1>
+    <p>오염을 자원으로, 지속 가능한 미래를 향한 한 걸음</p>
+  </header>
+
+  <section class="fade-in">
+    <h2>🌿 미세조류 활용 바이오 에너지</h2>
+    <div class="content">
+      <p>
+        <span class="highlight">아이디어:</span> 환경오염의 원인인 미세조류(예: 녹조)를 포집하고 이를 활용해
+        <strong>바이오 오일</strong>로 사용할 수 있는 지질을 추출하거나, 미세조류의 <strong>광합성 능력</strong>을 이용해
+        대기 중 <strong>이산화탄소(CO₂)</strong>를 흡수하고 산소를 배출하는 연구를 확대합니다.
+      </p><br>
+      <p>
+        <span class="highlight">환경적 이점:</span> 수질 오염원을 제거하면서 동시에 <strong>친환경 연료</strong>를 얻고,
+        탄소 저감에도 기여할 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>🔥 바이오차(Biochar)의 다목적 활용</h2>
+    <div class="content">
+      <p>
+        <span class="highlight">아이디어:</span> 음식물 쓰레기, 가축 분뇨 등의 폐기물을 <strong>열분해</strong>하여
+        바이오차를 생산하고, 이를 <strong>농업 비료</strong>, <strong>공기 청정 필터</strong>, 
+        <strong>배터리 소재</strong> 등으로 다양하게 활용합니다.
+      </p><br>
+      <p>
+        <span class="highlight">환경적 이점:</span> 폐기물 처리 문제를 해결함과 동시에
+        <strong>이산화탄소 격리(탄소 제거)</strong>와 <strong>토양 개량</strong> 등의 효과를 얻을 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>📊 환경적 효과 비교 그래프</h2>
+    <div class="content">
+      <p>두 기술의 주요 환경 효과를 시각적으로 비교합니다.</p>
+      <canvas id="impactChart"></canvas>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 GreenTech Research Initiative | Designed by LeafLink Labs
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // 🔹 섹션 등장 애니메이션
+    const fadeEls = document.querySelectorAll(".fade-in");
+    window.addEventListener("scroll", () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) el.classList.add("visible");
+      });
+    });
+
+    // 🔹 Chart.js 그래프
+    const ctx = document.getElementById("impactChart").getContext("2d");
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["탄소 저감 효과", "수질 개선", "폐기물 감소", "경제성", "에너지 효율"],
+        datasets: [
+          {
+            label: "미세조류 바이오에너지",
+            data: [9, 8, 7, 6, 8],
+            backgroundColor: "rgba(0, 102, 204, 0.6)",
+            borderColor: "#004b8d",
+            borderWidth: 1,
+            borderRadius: 8
+          },
+          {
+            label: "바이오차 활용",
+            data: [8, 7, 9, 7, 6],
+            backgroundColor: "rgba(0, 180, 216, 0.6)",
+            borderColor: "#0077b6",
+            borderWidth: 1,
+            borderRadius: 8
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 2000,
+          easing: "easeOutBounce"
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "효과 지수 (1~10)",
+              color: "#004b8d",
+              font: { size: 14 }
+            },
+            ticks: { color: "#004b8d" },
+            grid: { color: "rgba(0,0,0,0.05)" }
+          },
+          x: {
+            ticks: { color: "#004b8d" },
+            grid: { display: false }
+          }
+        },
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: { color: "#004b8d", boxWidth: 20 }
+          },
+          title: {
+            display: true,
+            text: "환경적 효과 비교",
+            color: "#004b8d",
+            font: { size: 18, weight: "bold" }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+  </html>
